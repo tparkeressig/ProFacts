@@ -48,7 +48,7 @@ def scan(text, letter, threshold):
     sum = 0
     while text:
         section = text[0:19]
-        if section.count('P') >= threshold:
+        if section.count(letter) >= threshold:
             sum += 1
         text = text[1:]
     return sum
@@ -71,12 +71,15 @@ with open(f) as f:
     ids = p.findall(file)
     sequences = r.findall(file)
     scores = [scan(protein, 'P', 9) for protein in sequences]
-    proteins = zip(ids, sequences, scores)
+    proteins = list(zip(ids, sequences, scores))
+    proteins = list(sorted(proteins, reverse=True, key=lambda protein: protein[2]))
 
 with open('wheatoutput.txt', 'w') as f:
-    for protein in proteins:
-        if protein[2] > 0:
-            f.write(protein[0] + ' ' + protein[1] + ' ' + str(protein[2]) + '\n')
+    for protein in proteins[:5]:
+        if scan(protein[1], 'Q', 12) > 0:
+            f.write(protein[0] + ' ' + str(protein[2]) + ' Dangerous\n')
+        else:
+            f.write(protein[0] + ' ' + str(protein[2]) + ' Safe\n')
 
 
 v=open("wheatoutput.txt").read()
