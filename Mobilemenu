@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		h1 {color: white; font-size: 1em; font-family: 'Droid Sans', sans-serif;}
+		h1 {text-align: left; padding-left: 20px;}
+		p {color: white; font-size: .5em; font-family: 'Droid Sans', sans-serif;}
+		p {text-align: left;}
+		button{border:none;
+			text-align: center;
+			width: 200px;}
+			ul { list-style-type: none; 
+				padding: 0; margin: 0;}
+	</style>
+</head>
+
+<body bgcolor=#FF9000>
+
+	<h1 style = "color: black">Restaurants Nearby:</h1>
+
+	<p style = "color: black; padding-left: 20px;"> Discover the proteins in your food via: </p>
+	<div>
+		<ul>
+			<button type = "button" style="background-color:white; color:DarkOrange"> Vegetarian Burrito</button>
+		<li>
+			<button type = "button" style="background-color:white; color:DarkOrange"> etc.</button>
+		</li>
+		<li>
+			<button type = "button" style="background-color:white; color:DarkOrange"> etc.</button>
+		</li>
+		<li>
+			<button type = "button" style="background-color:white; color:DarkOrange"> etc.</button>
+		</li>
+	</ul>
+	</div>
+
+</body>
+</html>
