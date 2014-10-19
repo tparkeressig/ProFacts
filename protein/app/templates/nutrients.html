@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		h1 {color: white; font-size: 1em; font-family: 'Droid Sans', sans-serif;}
+		h1 {text-align: left; padding-left: 20px;}
+		p {font-size: .5em; font-family: 'Droid Sans', sans-serif;}
+		p {text-align: left;}
+		button{border:none;
+			text-align: center;
+			width: 200px;}
+			ul { list-style-type: none; 
+				padding: 0; margin: 0;}
+		#green
+		{
+			color: green;
+		}
+		#red
+		{
+			color:red;
+		}
+	</style>
+</head>
+
+<body bgcolor=white>
+
+	<a href = "\menu">
+		<img src = "\static\img\Profacts.png" style = "width: 208px; height: 27px;">
+	</a>
+
+	<div>
+		<ul>
+			<p id = "red" style = "padding-left: 20px;">&#x2713 Celiac Disease
+				<ul>
+					<li>
+						<p style = "padding-left: 40px;"> Species
+                            {% for specie in species %}
+							<ul>
+								<li>
+                                    <p style="padding-left: 60px;">{{ specie[0].upper() + specie[1:] }}</p>
+                                        <ul>
+                                            <li>
+                                                {% for nutrient in species[specie] %}
+                                                    {% if nutrient[2] == 'Safe' %}
+                                                        <p id = "green"style = "padding-left: 80px;">&#x2713 {{ nutrient[0] }}</p>
+                                                    {% else %}
+                                                        <p id = "red" style = "padding-left: 80px;">&#10007 {{ nutrient[0] }}</p>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </li>
+                                        </ul>
+								</li>
+							</ul>
+                            {% endfor %}
+						</p>
+					</li>
+				</ul>
+			</p>
+		<li>
+		</li>
+			<p id = "green" style = "padding-left:20px;"> Gluten intolerance &#x2713
+				<ul>
+					<li>
+						<p style = "padding-left: 40px;"> Species 
+							<ul>
+								<li>
+									<p id = "green"style = "padding-left: 60px;"> Gluten &#x2713</p>
+									<p id = "green" style = "padding-left: 60px;"> Gluten &#x2713</p>
+								</li>
+							</ul>
+						</p>
+					</li>
+				</ul>
+			</p>
+		<li>
+			<p id = "red" style = "padding-left: 20px;"> IBS &#10007
+				<ul>
+					<li>
+						<p style = "padding-left: 40px;"> Species 
+							<ul>
+								<li>
+									<p id = "red"style = "padding-left: 60px;"> Gluten &#10007</p>
+									<p id = "red" style = "padding-left: 60px;"> Gluten &#10007</p>
+								</li>
+							</ul>
+						</p>
+					</li>
+				</ul>
+			</p>
+		</li>
+			<p id = "red" style = "padding-left: 20px;"> Gluten Sensitivity &#10007
+				<ul>
+					<li>
+						<p style = "padding-left: 40px;"> Species 
+							<ul>
+								<li>
+									<p id = "red"style = "padding-left: 60px;"> Gluten &#10007</p>
+									<p id = "red" style = "padding-left: 60px;"> Gluten &#10007</p>
+								</li>
+							</ul>
+						</p>
+					</li>
+				</ul>
+			</p>
+		<li>
+		</li>
+	</ul>
+	</div>
+
+</body>
+</html>
