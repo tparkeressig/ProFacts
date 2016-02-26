@@ -29,7 +29,10 @@ if __name__ == '__main__':
     conn = sqlite3.connect('example.db')
     cursor = conn.cursor()
 
-    #generate_random_data(cursor)
-    #conn.commit()
+    # example database, change as necessary
+    # creates database if necessary
+    #cursor.execute('create table restaurants (name char, lat float, lon float, danger_rating float)')
+    generate_random_data(cursor)
+    conn.commit()
     
     sql_to_json(cursor, open('example.json', 'w'), ['name', 'lat', 'lon', 'danger_rating'], 'restaurants')
