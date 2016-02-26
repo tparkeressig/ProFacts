@@ -15,7 +15,7 @@ def sql_to_json(cursor, file, keys, table):
     l = []
     for row in cursor.fetchall():
         l.append({key: entry for (key, entry) in zip(keys, row)})
-    dump(l, file, indent=4)
+    dump(l, file)
 
 def generate_random_data(cursor):
     for i in range(100):
@@ -35,4 +35,4 @@ if __name__ == '__main__':
     generate_random_data(cursor)
     conn.commit()
     
-    sql_to_json(cursor, open('example.json', 'w'), ['name', 'lat', 'lon', 'danger_rating'], 'restaurants')
+    sql_to_json(cursor, open('example2.json', 'w'), ['name', 'lat', 'lon', 'danger_rating'], 'restaurants')
